@@ -5,21 +5,7 @@ This package contains the dataset named named "Large-scale Multi-layer Academic 
 
 We highly welcome you to utilize our data and code for your research work. If you use our data and code, please ensure to cite our paper accurately as follows:
 
-@article{gao2023large,
-
-  title={Large-scale Multi-layer Academic Networks Derived from Statistical Publications},
-  
-  author={Gao, Tianchen and Zhang, Yan and Pan, Rui and Wang, Hansheng},
-  
-  journal={Scientific Data},
-  
-  year={2023},
-  
-  publisher={Nature Publishing Group},
-  
-  doi={10.xxxxx/xxxxx}
-  
-}
+Gao, T., Zhang, Y., Pan, R., & Wang, H. (2023). Large-scale Multi-layer Academic Networks Derived from Statistical Publications. Scientific Data. Submission.
 
 ## LMANStat Dataset
 
