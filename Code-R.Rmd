@@ -1,0 +1,112 @@
+---
+title: "Code-R"
+author: "Tianchen Gao"
+output: html_document
+---
+
+## Introduction
+
+This code uses a citation network as an example to demonstrate network construction, basic descriptive analysis, and visualization.
+
+```{r,warning=FALSE,message=FALSE}
+# Load the required packages
+library(igraph)
+```
+
+## Construct Citation Network
+
+```{r}
+# Read in the edge data (citation network)
+citation <- read.csv("Edgelist_citation_network.csv")
+# Filter by year (2000-2005)
+citation <- citation[which(citation$Year <= 2005 & citation$Year >= 2000), ]
+# Construct the citation network
+g <- graph_from_data_frame(citation[,c("Source","Target")], directed = TRUE)
+# View the network
+g
+```
+
+## Descriptive Analysis
+
+### Basic
+
+```{r,fig.align='center',fig.height=6,fig.width=6}
+# Number of nodes and edges in the network
+c(vcount(g), ecount(g))
+# Network density
+edge_density(g)
+# Node degree
+d <- degree(g)
+# Minimum and maximum degree values
+c(min(d), max(d))
+```
+
+### Degree Distribution 
+
+```{r,fig.align='center',fig.height=5,fig.width=12}
+# Set up the canvas
+par(mfrow = c(1, 2))
+# Plot degree distribution histogram
+hist(degree(g), xlab = "Degree", ylab = "Frequency", main = "")
+# Plot double-log degree distribution graph
+# Count
+data_freq <- data.frame(table(degree(g)))
+data_freq$Var1 <- as.numeric(as.character(data_freq$Var1))
+# Plot
+plot(log(as.numeric(data_freq$Var1)), log(data_freq$Freq), xlab = "Log-Degree", ylab = "Log-Count")
+```
+
+### Dyadic Structures
+
+```{r}
+#Calculate the counts of three types of dyadic structures using the dyad.census() function
+dyad.census(g)
+```
+
+### Centrality
+
+```{r,warning=FALSE}
+# Degree centrality
+head(degree(g, normalized = T))
+# Closeness centrality
+head(closeness(g, normalized = T))
+# Betweenness centrality
+head(betweenness(g, normalized = T))
+```
+
+### Neighbors
+
+```{r}
+n <- neighbors(g, 'Paper_4')
+print(n)
+```
+
+### Ego Network
+
+```{r}
+# Extract node neighborhoods
+gn = graph.neighborhood(g, order = 1)
+# Display the number of nodes in the subgraph of the first 20 node neighborhoods
+sapply(gn, vcount)[1:20]
+```
+
+## Visualization
+
+```{r,fig.align='center',fig.width=5,fig.height=5}
+# Set seed
+set.seed(42)
+#Plot the 1st order neighborhood subgraph of node "Paper_4"
+plot(gn[[which(V(g)$name == "Paper_4")]],
+  # Set node size
+  vertex.size = 10,
+  # Set node color
+  vertex.color = 'lightsteelblue2',
+  # Set node border color
+  vertex.frame.color = 'skyblue4',
+  # Set vertex label size
+  vertex.label.cex = 0.8,
+  # Set distance between node and label to avoid overlap
+  vertex.label.dist = 2,
+  # Fruchterman-Reingold layout
+  layout = layout.fruchterman.reingold)
+```
