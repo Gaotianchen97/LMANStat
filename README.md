@@ -1,4 +1,4 @@
-# LMANStat
+# Large-scale Multi-layer Academic Networks Derived from Statistical Publications
 
 ## Introduction
 This package contains the dataset named named "Large-scale Multi-layer Academic Networks (LMANStat)" and the code in Gao, Zhang, Pan, and Wang's paper titled "Large-scale Multi-layer Academic Networks Derived from Statistical Publications".
