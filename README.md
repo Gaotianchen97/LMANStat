@@ -20,6 +20,8 @@ The file *Author_information.xlsx* contains the attributes of each unique author
 ### Edgelist_X.csv
 The eight CSV files with the name *Edgelist_X.csv* (X is the name of each network) correspond to the edge lists of the seven networks described above. The fields **(Target and Source)** in each row of the edge data files represent an edge in the corresponding network, with the field **Year** indicating the time in which the edge is formed. The specific meaning of each edge is detailed in the paper. By filtering according to the **Year** field, one can easily construct the academic network dynamically. The nodes in files Edgelist_citation.csv, *Edgelist_co_citation.csv*, *Edgelist_collaboration.csv*, *it Edgelist_author_citation.csv*, and *Edgelist_author_paper.csv* are **Paper_unique_id** or **Author_unique_id** while the nodes in files *Edgelist_journal_citation.csv*, *Edgelist_co_institution.csv*, and *Edgelist_keyword_co_occurrence.csv* are the journal names, institution names, and keywords, respectively.
 
+Note: Due to the file size of *Edgelist_co_institution_network.csv* exceeding 100MB, for the convenience of downloading and usage, we have additionally provided the *Edgelist_co_institution_network.xlsx* file.
+
 ### Network Sturcture
 
 ![Network_Structure](https://github.com/Gaotianchen97/LMANStat/assets/88761342/e9ff46b0-ddc6-4b93-b11f-ab594b91b89b)
