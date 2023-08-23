@@ -5,7 +5,7 @@ This package contains the dataset named named "Large-scale Multi-layer Academic 
 
 We highly welcome you to utilize our data and code for your research work. If you use our data and code, please ensure to cite our paper accurately as follows:
 
-Gao, T., Zhang, Y., Pan, R., & Wang, H. (2023). Large-scale Multi-layer Academic Networks Derived from Statistical Publications. Zenodo. https://doi.org/10.5281/zenodo.8160653
+Gao, T., Zhang, Y., Pan, R., & Wang, H. (2023). Large-scale Multi-layer Academic Networks Derived from Statistical Publications. arXiv preprint arXiv:2308.11287.
 
 ## LMANStat Dataset
 
